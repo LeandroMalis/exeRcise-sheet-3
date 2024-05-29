@@ -215,7 +215,7 @@ ggplot(fao) +
     x = "Year",
     y = "Obesity Rate",
     title = "Obesity rate around the world",
-    caption = "Source: https://github.com/owid/owid-datasets/blob/master/datasets/Adult%20obesity%20by%20region%20-%20FAO%20(2017)/Adult%20obesity%20by%20region%20-%20FAO%20(2017).csv",
+    caption = "Source: https://github.com/owid/owid-datasets/tree/master/datasets",
     color = "Region"
   ) +
   theme_minimal()
@@ -224,6 +224,25 @@ ggplot(fao) +
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+
+```{r fig.cap = "Boxplot showing the prevalence of adult obesity around the world"}
+fao_filtered <- fao %>%
+  filter(Year == 2014)
+
+fao_filtered$Entity[fao_filtered$Entity == "Latin America and the Caribbean"] <- "Latin America/Caribbean"
+fao_filtered$Entity[fao_filtered$Entity == "North America and Europe"] <- "NA & EU"
+
+ggplot(fao_filtered) +
+  aes(x = Entity, y = obesity_rate) +
+  geom_col(fill = "#112446") +
+  labs(
+    x = "Region",
+    y = "Obesity rate",
+    title = "Obesity around the world (2014)",
+    caption = "Source: https://github.com/owid/owid-datasets/tree/master/datasets"
+  ) +
+  theme_minimal()
+```
 
 ## Final Note
 
