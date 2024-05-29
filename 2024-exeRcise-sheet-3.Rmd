@@ -69,12 +69,13 @@ a)  Create a new repository on GitHub in your account named
     `exeRcise-sheet-3`. Make sure you create a **public repository** so
     we are able to see it for grading. Add the link to the repository
     below:
-    
-    https://github.com/LeandroMalis/exeRcise-sheet-3
-    
+
+    <https://github.com/LeandroMalis/exeRcise-sheet-3>
+
 b)  Push your code to this new repository by copying and executing the
     snippet on github listed under
     `…or push an existing repository from the command line`.
+
 c)  Regularly push your latest changes to GitHub again and especially do
     so when you are finished with this sheet.
 
@@ -94,6 +95,29 @@ b)  Load the data for both years into R. Check the type of the count
     not numeric? Fix the problem in an appropriate manner, it is OK if
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
+
+```{r}
+data2022 <- read.csv("data/Vornamen_2022.csv")
+data2023 <- read.csv("data/Vornamen_2023.csv")
+
+str(data2022)
+str(data2023)
+
+head(data2022)
+head(data2023)
+
+data2022$Anzahl[data2022$Anzahl == "4 oder weniger"] <- 0
+data2023$Anzahl[data2023$Anzahl == "4 oder weniger"] <- 0
+
+data2022$Anzahl <- as.numeric(data2022$Anzahl)
+data2023$Anzahl <- as.numeric(data2023$Anzahl)
+```
+
+"Anzahl" is not numeric because there are characters present in the
+data. The problem seems to be for numbers 4 or less ("4 oder weniger"),
+which are not measured exact anymore. I replaced all "4 oder weniger"
+with 0, which is a bit inaccurate, but the often occurring names are
+unchanged. After that the type just has to be converted to numeric.
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
