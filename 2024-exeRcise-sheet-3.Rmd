@@ -122,6 +122,17 @@ unchanged. After that the type just has to be converted to numeric.
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
+```{r}
+babies2022 <- sum(data2022$Anzahl)
+babies2023 <- sum(data2023$Anzahl)
+
+babies2022
+babies2023
+```
+
+The year 2022 (`r babies2022` babies) had a bigger baby-boom then 2023
+(`r babies2023` babies).
+
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
