@@ -183,17 +183,44 @@ b)  Download the dataset and track it in git.
 c)  Put the name / title of the dataset and a link to it below.
 
 -   Dataset Name: Adult obesity by region - FAO (2017)
--   Link: https://github.com/owid/owid-datasets/blob/master/datasets/Adult%20obesity%20by%20region%20-%20FAO%20(2017)/Adult%20obesity%20by%20region%20-%20FAO%20(2017).csv
+-   Link:
+    [https://github.com/owid/owid-datasets/blob/master/datasets/Adult%20obesity%20by%20region%20-%20FAO%20(2017)/Adult%20obesity%20by%20region%20-%20FAO%20(2017).csv](https://github.com/owid/owid-datasets/blob/master/datasets/Adult%20obesity%20by%20region%20-%20FAO%20(2017)/Adult%20obesity%20by%20region%20-%20FAO%20(2017).csv){.uri}
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
-    
-How did obesity in adults change around the world in the last few decades?
-I think this could be interesting to see if obesity really is on the rise, like media protrays and if it is the same around the world or worse in some places.
-    
+
+How did obesity in adults change around the world in the last few
+decades? I think this could be interesting to see if obesity really is
+on the rise, like media protrays and if it is the same around the world
+or worse in some places.
+
 e)  Use R to answer your chosen question.
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+fao <- read.csv("data/Adult obesity by region - FAO (2017).csv")
+
+fao <- fao %>%
+  rename(obesity_rate = `Prevalence.of.obesity.in.adults..18..years.old...FAO..2017..`)
+
+ggplot(fao) +
+  aes(x = Year, y = obesity_rate, colour = Entity) +
+  geom_point(shape = "circle", size = 1.5) +
+  scale_color_brewer(palette = "Dark2", direction = 1) +
+  labs(
+    x = "Year",
+    y = "Obesity Rate",
+    title = "Obesity rate around the world",
+    caption = "Source: https://github.com/owid/owid-datasets/blob/master/datasets/Adult%20obesity%20by%20region%20-%20FAO%20(2017)/Adult%20obesity%20by%20region%20-%20FAO%20(2017).csv",
+    color = "Region"
+  ) +
+  theme_minimal()
+```
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
