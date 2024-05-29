@@ -189,6 +189,10 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+    
+How did obesity in adults change around the world in the last few decades?
+I think this could be interesting to see if obesity really is on the rise, like media protrays and if it is the same around the world or worse in some places.
+    
 e)  Use R to answer your chosen question.
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
