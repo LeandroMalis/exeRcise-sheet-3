@@ -4,6 +4,9 @@ subtitle: "Fortgeschrittene Statistische Software für NF"
 author: "Leandro Malis (Matrikel-Nr. 12568938)"
 date: "`r Sys.Date()`"
 output: distill::distill_article
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ## General Remarks
@@ -44,6 +47,16 @@ c)  For all of the following tasks in this exercise sheet we ask you to
 
 d)  Name 2 strengths and 2 weaknesses of git. (Don't forget to create a
     commit after this answer, see *1c*)
+
+Strengths: -Git helps team members working together, since they all gain
+access to a copy of the repository and its entire history. -Branching
+and Merging makes it easy to work on multiple tasks without affecting
+the main code.
+
+Weaknesses: - Git can be complex and hard to learn for first time
+users. - Git is mainly designed for text-based files and doesn't handle
+large amounts of images well.
+
 e)  Knit this exercise sheet. Some new files will automatically be
     generated when knitting the sheet e.g. the HTML page. Ignore these
     files, as we only want to track the source files themselves.
