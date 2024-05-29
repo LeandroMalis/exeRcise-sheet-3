@@ -136,6 +136,14 @@ The year 2022 (`r babies2022` babies) had a bigger baby-boom then 2023
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
+```{r}
+data2022$year <- 2022
+data2023$year <- 2023
+
+head(data2022)
+head(data2023)
+```
+
 e)  Combine both datasets into one using `bind_rows()`.
 
 f)  Combine the counts for same names to determine the most popular
